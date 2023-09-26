@@ -20,8 +20,9 @@ class StandupResponse:
 class DatabaseHelper:
     def __init__(self, dbname, workmode='prod'):
         self.conn = sqlite3.connect(dbname)
-        self.create_tables()
         self.workmode = workmode
+        self.create_tables()
+
 
     def create_tables(self):
         cursor = self.conn.cursor()
@@ -37,7 +38,7 @@ class DatabaseHelper:
                         telgram_user_first_name TEXT,
                         telgram_user_second_name TEXT,
                         last_standup_date DATE,
-                        joined_date  DEFAULT CURRENT_TIMESTAMP)
+                        joined_date  DEFAULT CURRENT_TIMESTAMP
                     )
                 ''')
         cursor.execute('''
